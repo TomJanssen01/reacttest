@@ -15,7 +15,6 @@ function Names (props){
   return <div>{name}</div>
 }
 
-const[welcomeText, setWelcomeText]= useState(process.env.REACT_APP_TEXT);
 function App() {
   return (
 
