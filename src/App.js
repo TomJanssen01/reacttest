@@ -1,24 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+const NAMES_Data = [
+    {name: "Walter", function: "HR"},
+    {name: "Alpa", function: "SALES"},
+    {name: "Bert", function: "SALES"},
+    {name: "Sven", function:"TECS"},
+    {name: "Nataï", function:"ADMIN"},
+];
+
+function Names (props){
+  const {name}  =props;
+  return <div>{name}</div>
+}
+
+const[welcomeText, setWelcomeText]= useState(process.env.REACT_APP_TEXT);
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div>
+        <p>{process.env.REACT_APP_TEXT}</p>
+      <h1>Hier is een namenlijst van jouw collega's</h1>
+        {NAMES_Data.map((n)=>
+        <Names key={n.name} name={n.name}/>)}
     </div>
   );
 }
