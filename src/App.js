@@ -1,6 +1,4 @@
 import React, {useState} from 'react';
-import logo from './logo.svg';
-import './App.css';
 
 const NAMES_Data = [
     {name: "Walter", function: "HR"},
