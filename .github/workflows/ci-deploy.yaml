@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - deploy_from_chapter3_result
+      - deploy_from_master
 jobs:
   deploy:
     name: Deploy on Github Pages
