@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      deploy_from_master
+      - deploy_from_master
 jobs:
   deploy:
     name: Deploy on Github Pages
@@ -12,7 +12,7 @@ jobs:
 
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1.1.0
-        whith
+        with:
           version: 12.x
 
       - name: npm install all dependencies
@@ -23,10 +23,11 @@ jobs:
         run: |
           git config user.name $user_name
           git config user.email $user_email
-          git remote set-url origin https://x-acces-token:${repo_token}@github.com/${repository}.git
+          git remote set-url origin https://x-access-token:${repo_token}@github.com/${repository}.git
           npm run deploy
         env:
           user_name: "$GITHUB_ACTOR"
           user_email: "$GITHUB_ACTOR@bots.github.com"
-          github_token: ${{secrets.GITHUB_TOKEN}}
-          repository: ${{github.repository}}
+          github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
