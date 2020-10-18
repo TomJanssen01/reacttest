@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      master
+      deploy_from_master
 
 jobs:
   deploy:
@@ -31,4 +31,3 @@ jobs:
           user_email: "$GITHUB_ACTOR@bots.github.com"
           github_token: ${{secrets.GITHUB_TOKEN}}
           repository: ${{github.repository}}
-        
